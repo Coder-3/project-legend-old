@@ -1,36 +1,97 @@
-function d100() {
-    let randomNumber = Math.floor(Math.random() * 100);
+let attributes = ['Strength', 'Constitution', 'Power', 'Dexterity', 'Appearance', 'Size'];
 
-    return randomNumber;
+createOptions = (option) => {
+    let optionElement = document.createElement('option');
+    optionElement.setAttribute("value", option);
+    let optionText = document.createTextNode(option);
+    optionElement.appendChild(optionText);
+
+    console.log(optionElement);
+    return optionElement;
 }
 
-function roll(id) {
-    console.log(id);
-    let result = document.getElementById(id);
-    result.innerHTML = d100();
+function createRoller() {
+    let rollButtonDiv = document.getElementById('roll-button');
+    let rollContainer = document.getElementById('roll-container');
+
+    let array = ["D100", "D20", "D8", "D6", "D4"];
+
+    let selectList = document.createElement("select");
+    selectList.id = "die-selector";
+
+    for (let i = 0; i < array.length; i++) {
+        let option = document.createElement("option");
+        option.value = array[i];
+        option.text = array[i];
+        selectList.appendChild(option);
+    }
+
+    let numberOfDice = document.createElement('input');
+    numberOfDice.type = 'text';
+
+    let dieModifier = document.createElement('input');
+    dieModifier.type = 'text';
+
+    let rollButton = document.createElement('button');
+    rollButton.onclick = function () { roller(); };
+    rollButton.innerHTML = 'Roll';
+
+    let result = document.createElement('p');
+    result.id = 'result';
+    result.innerHTML = 'Result: ';
+
+    rollButtonDiv.appendChild(numberOfDice);
+    rollButtonDiv.appendChild(selectList);
+    rollButtonDiv.appendChild(dieModifier);
+    rollButtonDiv.appendChild(rollButton);
+    rollContainer.appendChild(result);
 }
 
-function setRanges(value, rangesID) {
-    let rangeTag = document.getElementById(rangesID);
-    rangeTag.innerHTML = value + " " + Math.floor(value / 2) + " " + Math.floor(value / 5);
+setAttributes = (attribute, index) => {
+    let attributeDiv = document.getElementById(attribute);
+
+    let attributeCheckbox = document.createElement('input');
+    attributeCheckbox.type = 'checkbox';
+
+    let attributeName = document.createElement('p');
+    attributeName.innerHTML = attribute;
+
+    let attributeValue = document.createElement('input');
+    attributeValue.type = 'text';
+
+    attributeDiv.appendChild(attributeCheckbox);
+    attributeDiv.appendChild(attributeName);
+    attributeDiv.appendChild(attributeValue);
 }
 
-function getValue(inputID, rangesID) {
-    let statVal = document.getElementById(inputID).value;
+attributes.forEach(setAttributes);
+createRoller();
 
-    setRanges(statVal, rangesID);
+function checkboxChecker(attribute) {
+    let theCheckbox = document.querySelector("div#" + attribute + " input[type='checkbox']");
+    
+    if(theCheckbox.checked) {
+        let textInput = document.querySelector("div#" + attribute + " input[type='text']");
 
-    if(inputID === 'powVal') {
-        let magicVal = document.getElementById("magRanges");
-        magicVal.innerHTML = Math.floor(statVal / 5);
+        return textInput.value;
     }
 }
 
-function hitpoints() {
-    let conVal = document.getElementById("conVal").value;
-    let sizVal = document.getElementById("sizVal").value;
+function showResult(result) {
+    let resultElement = document.getElementById('result');
+    resultElement.append(result);
 
-    let hpRanges = document.getElementById("hpRanges");
-    
-    hpRanges.innerHTML = Math.floor(((parseInt(conVal) + parseInt(sizVal)) / 10));
+    // if
+}
+
+function roller() {
+    let result;
+    for(let i = 0; i < attributes.length; i++) {
+        if (checkboxChecker(attributes[i]) != null) {
+            result = checkboxChecker(attributes[i]);
+            break;
+        }
+    }
+
+    showResult(result);
 }

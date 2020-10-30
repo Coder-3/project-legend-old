@@ -1,0 +1,23 @@
+.attributes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.attribute {
+    width: 50%;
+    margin: 12px 0 12px 0;
+}
+
+#roll-container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+#roll-button {
+    text-align: center;
+}

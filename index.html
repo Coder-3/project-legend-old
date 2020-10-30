@@ -2,65 +2,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles.css"/>
     <title>Document</title>
 </head>
 <body>
-    <!-- Halves and fifths -->
-    <p>Strength: </p>
-    <p id="strRanges"></p>
-    <input type="number" id="strVal" name="strength">
-    <button id="str" onclick='roll("str")'>Roll</button>
-    <button onclick='getValue("strVal", "strRanges")'>Set Value</button>
-    
-    <p>Constitution: </p>
-    <p id="conRanges"></p>
-    <input type="number" id="conVal" onChange="hitpoints()" name="constitution">
-    <button id="con" onclick='roll("con")'>Roll</button>
-    <button onclick='getValue("conVal", "conRanges")'>Set Value</button>
-    
-    <p>Power: </p>
-    <p id="powRanges"></p>
-    <input type="number" id="powVal" name="power">
-    <button id="pow" onclick='roll("pow")'>Roll</button>
-    <button onclick='getValue("powVal", "powRanges")'>Set Value</button>
-    
-    <p>Dexterity: </p>
-    <p id="dexRanges"></p>
-    <input type="number" id="dexVal" name="dexterity">
-    <button id="dex" onclick='roll("dex")'>Roll</button>
-    <button onclick='getValue("dexVal", "dexRanges")'>Set Value</button>
-    
-    <p>Appearance: </p>
-    <p id="appRanges"></p>
-    <input type="number" id="appVal" name="appearance">
-    <button id="app" onclick='roll("app")'>Roll</button>
-    <button onclick='getValue("appVal", "appRanges")'>Set Value</button>
-    
-    <p>Size: </p>
-    <p id="sizRanges"></p>
-    <input type="number" onChange="hitpoints()" id="sizVal" name="size">
-    <button id="siz" onclick='roll("siz")'>Roll</button>
-    <button onclick='getValue("sizVal", "sizRanges")'>Set Value</button>
-    
-    <p>Intelligence: </p>
-    <p id="intRanges"></p>
-    <input type="number" id="intVal" name="intelligence">
-    <button id="int" onclick='roll("int")'>Roll</button>
-    <button onclick='getValue("intVal", "intRanges")'>Set Value</button>
-    
-    <p>Education: </p>
-    <p id="eduRanges"></p>
-    <input type="number" id="eduVal" name="education">
-    <button id="edu" onclick='roll("edu")'>Roll</button>
-    <button onclick='getValue("eduVal", "eduRanges")'>Set Value</button>
+    <div id="roll-container">
+        <div id="roll-button"></div>
+    </div>
+    <div class="attributes-container">
+        <div class="attribute" id="Strength"></div>
+        <div class="attribute" id="Constitution"></div>
+        <div class="attribute" id="Power"></div>
+        <div class="attribute" id="Dexterity"></div>
+        <div class="attribute" id="Appearance"></div>
+        <div class="attribute" id="Size"></div>
+    </div>  
 
-    <p>Magic: </p>
-    <p id="magRanges"></p>
-    
-    <p>HP: </p>
-    <p id="hpRanges"></p>
-    <!-- hp = con + size / 10 -->
     <script src="script.js"></script>
 </body>
 </html>
