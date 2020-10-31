@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+#attributes-div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#attributes-div > div {
+    display: flex;
+    flex-direction: row;
+    margin: 24px;
+}
+
+#attributes-div > div > input[type=text] {
+    width: 24px;
+    margin-left: 6px;
+}
+
+#characteristics-div {
+    font-size: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; 
+
+    padding: 2rem;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.characteristic-div {
+    display: flex;
+    flex-direction: row;
+    margin: 12px 0 12px 0;
+    justify-content: center;
+    width: 50%;
+}
+
+.characteristic-value-div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 140px;
+    height: 70px;
+}
+
+.characteristic-value-div > input {
+    width: 50%;
+    height: 100%;
+}
+
+.characteristic-value-div > p {
+    height: 50%;
+    width: 50%;
+    border-style: groove;
+}
+
+.characteristic-div > p, .roll-button, .luck-div {
+    margin: 0 12px 0 12px;
+}
+
+.roll-button {
+    width: 70px;
+    height: 70px;
+}
+
+.luck-div > input, .luck-div > button, .push-button {
+    width: 70px;
+    height: 70px;
+}
