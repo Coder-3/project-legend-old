@@ -27,9 +27,13 @@ function createRoller() {
     }
 
     let numberOfDice = document.createElement('input');
+    numberOfDice.id = 'multiplier';
+    numberOfDice.value = '1';
     numberOfDice.type = 'text';
 
     let dieModifier = document.createElement('input');
+    dieModifier.id = 'modifier';
+    dieModifier.value = '0';
     dieModifier.type = 'text';
 
     let rollButton = document.createElement('button');
@@ -77,11 +81,51 @@ function checkboxChecker(attribute) {
     }
 }
 
+function variousDiceRoller(maximumValue) {
+    let normalRoll = Math.floor(Math.random() * maximumValue + 1);
+
+    let multiplier = document.getElementById('multiplier').value;
+    let modifier = parseInt(document.getElementById('modifier').value);
+    let finalResult = multiplier * normalRoll + modifier;
+    
+    let fifthRoll = Math.floor(finalResult / 5);
+    let halfRoll = Math.floor(finalResult / 2);
+    let doubleRoll = Math.floor(finalResult * 2);
+    let fiveRoll = Math.floor(finalResult * 5);
+
+    let outputToUser =  + fifthRoll + ' | ' + halfRoll + ' | ' + finalResult + ' | ' + doubleRoll + ' | ' + fiveRoll;
+
+    console.log('Roll result: ', normalRoll);
+
+    return finalResult;
+}
+
 function showResult(result) {
     let resultElement = document.getElementById('result');
-    resultElement.append(result);
 
-    // if
+    let diceType = document.getElementById('die-selector').value;
+    let rollResult;
+
+    switch(diceType) {
+        case 'D100':
+            rollResult = variousDiceRoller(100);
+            break;
+        case 'D20':
+            rollResult = variousDiceRoller(20);
+            break;
+        case 'D8':
+            rollResult = variousDiceRoller(8);
+            break;
+        case 'D6':
+            rollResult = variousDiceRoller(6);
+            break;
+        default:
+            break;
+    }
+
+    resultElement.innerHTML = 'Regular success: ' + rollResult + 'Hard success: ' + rollResult / 2 + 'Extreme success: ' + rollResult /5;
+
+    // if(rollResult >= )
 }
 
 function roller() {

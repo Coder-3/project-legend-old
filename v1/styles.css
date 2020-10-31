@@ -21,3 +21,7 @@
 #roll-button {
     text-align: center;
 }
+
+#roll-button > input[type=text] {
+    width: 36px;
+}
