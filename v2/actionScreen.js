@@ -24,21 +24,28 @@ const checkSelected = () => {
 const drawActionScreen = () => {
     let selectedStatsWithValues = checkSelected();
 
-    console.log(selectedStatsWithValues);
-
-    document.body.innerHTML = "";
-
     let actionScreenDiv = document.createElement("DIV");
     actionScreenDiv.id = "action-screen-div";
 
-    selectedStatsWithValues[0].forEach(function (characteristic) {
+    selectedStatsWithValues[0].forEach(function (characteristic, index) {
         let currentCharacteristic = characteristicComponent(characteristic);
         actionScreenDiv.appendChild(currentCharacteristic);
     });
 
-    selectedStatsWithValues[1].forEach(function (value){
-        let 
-    });
-
+    document.body.innerHTML = "";
     document.body.append(actionScreenDiv);
+
+    selectedStatsWithValues[1].forEach(function (value, index){
+        let characteristicInput = document.getElementById(selectedStatsWithValues[0][index] + "ValueInput");
+        let characteristicHardValueParagraph = document.getElementById(selectedStatsWithValues[0][index] + "-hard-value-paragraph");
+        let characteristicExtremeValueParagraph = document.getElementById(selectedStatsWithValues[0][index] + "-extreme-value-paragraph");
+
+        let regularSuccess = selectedStatsWithValues[1][index];
+        let hardSuccess = Math.floor(regularSuccess / 2);
+        let extremeSuccess = Math.floor(regularSuccess / 5);
+        
+        characteristicInput.value = regularSuccess;
+        characteristicHardValueParagraph.innerHTML = hardSuccess;
+        characteristicExtremeValueParagraph.innerHTML = extremeSuccess;
+    });
 }

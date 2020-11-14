@@ -20,7 +20,6 @@ function roller(rollButton) {
     let d100Value = Math.floor(Math.random() * 99 + 1);
 
     rollButton.innerHTML = d100Value;
-
 }
 
 function useLuck() {}
