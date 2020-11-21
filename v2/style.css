@@ -1,88 +1,133 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-
 #attributes-div {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 #attributes-div > div {
-    display: flex;
-    flex-direction: row;
-    margin: 24px;
+  display: flex;
+  flex-direction: row;
+  margin: 24px;
 }
 
-#attributes-div > div > input[type=text] {
-    width: 24px;
-    margin-left: 6px;
+#attributes-div > div > input[type="text"] {
+  width: 24px;
+  margin-left: 6px;
 }
 
 #characteristics-div {
-    font-size: 24px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center; 
+  font-size: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 
-    padding: 2rem;
-    text-align: center;
-    margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .characteristic-div {
-    display: flex;
-    flex-direction: row;
-    margin: 12px 0 12px 0;
-    justify-content: center;
-    width: 50%;
+  display: flex;
+  flex-direction: row;
+  margin: 12px 0 12px 0;
+  justify-content: center;
+  width: 50%;
 }
 
 .characteristic-value-div {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 140px;
-    height: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 140px;
+  height: 70px;
 }
 
 .characteristic-value-div > input {
-    width: 50%;
-    height: 100%;
+  width: 50%;
+  height: 100%;
 }
 
 .characteristic-value-div > p {
-    height: 50%;
-    width: 50%;
-    border-style: groove;
+  height: 50%;
+  width: 50%;
+  border-style: groove;
 }
 
-.characteristic-div > p, .roll-button, .luck-div {
-    margin: 0 12px 0 12px;
+.characteristic-div > p,
+.roll-button,
+.luck-div {
+  margin: 0 12px 0 12px;
 }
 
 .roll-button {
-    width: 70px;
-    height: 70px;
+  width: 70px;
+  height: 70px;
 }
 
-.luck-div > input, .luck-div > button, .push-button {
-    width: 70px;
-    height: 70px;
+.luck-div > input,
+.luck-div > button,
+.push-button {
+  width: 70px;
+  height: 70px;
+}
+
+.action-screen-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 #action-screen-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 12px;
+  padding: 56px;
 }
 
 #action-screen-div > button {
-    padding: 12px 6px;
+  padding: 12px 6px;
+}
+
+.roll-fail {
+  background-color: #ff5959;
+}
+
+.roll-success {
+  background-color: #59ff67;
+}
+
+.modal {
+  display: block;
+  position: fixed; 
+  padding-top: 50px;
+  left: 0; 
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+  float: right;
+  color: lightgray;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.close-btn:hover {
+  color: darkgray;
 }
