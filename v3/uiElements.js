@@ -64,7 +64,3 @@ const createButton = (className, id, text) => {
 
   return buttonElement;
 };
-
-const resetState = () => {
-  
-}

@@ -32,6 +32,12 @@ const setLuck = (d100Result, characteristic) => {
     characteristic + "ValueInput"
   ).value;
   let luckRequired = d100Result - characteristicSuccessValue;
+  let luckRemaining = document.getElementById("LuckValueInput").value;
+  let luckButton = document.getElementById(characteristic + "LuckButton");
+
+  if (luckRequired > luckRemaining) {
+    luckButton.disabled = true;
+  }
 
   if (Math.sign(luckRequired) != -1) {
     luckInput.value = luckRequired;

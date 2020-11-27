@@ -4,7 +4,7 @@ const checkSelected = () => {
   let selectedStatsValues = [];
 
   [...document.getElementsByClassName("characteristic-checkbox")].forEach(
-    (element, index, array) => {
+    (element) => {
       if (element.checked) {
         let selectedCharacteristicName = element.id.replace("Checkbox", "");
         selectedStats.push(selectedCharacteristicName);
@@ -30,7 +30,7 @@ const drawActionScreen = () => {
   actionScreenDiv.id = "action-screen-div";
 
   selectedStatsWithValues[0].forEach(function (characteristic) {
-    let currentCharacteristic = characteristicComponent(characteristic);
+    let currentCharacteristic = characteristicComponent("Roll-" + characteristic);
     currentCharacteristic.style.width = "100%";
     actionScreenDiv.appendChild(currentCharacteristic);
   });

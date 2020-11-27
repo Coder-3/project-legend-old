@@ -3,7 +3,7 @@ attributeComponent = (attribute) => {
 
   let attributeNameElement = createParagraph("none", "none", attribute);
 
-  let attributeValue = createTextInput("none", "none");
+  let attributeValue = createTextInput("none", attribute + "ValueInput");
 
   attributeDiv.appendChild(attributeNameElement);
   attributeDiv.appendChild(attributeValue);
