@@ -22,13 +22,17 @@ const actionScreenBuilder = () => {
 
   actionScreen.innerHTML = "";
 
-  let investigatorScreenButton = createButton("screen-button", "investigator-screen-button", "Investigator Screen");
+  let investigatorScreenButton = createButton(
+    "screen-button",
+    "investigator-screen-button",
+    "Investigator Screen"
+  );
   investigatorScreenButton.onclick = () => {
     investigatorScreenBuilder();
-  }
+  };
 
   actionScreen.appendChild(investigatorScreenButton);
-  
+
   let selectedForRoll = checkSelected();
 
   selectedForRoll.forEach((characteristic) => {
@@ -38,5 +42,5 @@ const actionScreenBuilder = () => {
     actionScreen.appendChild(selectedForRollComponent);
   });
 
-  calculateActionScreenSuccessValues();
+  calculateActionScreenSuccessValues('action-screen');
 };

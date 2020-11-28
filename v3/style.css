@@ -22,7 +22,8 @@
   margin-left: 6px;
 }
 
-#action-screen-div, #action-screen {
+#action-screen-div,
+#action-screen {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,4 +113,12 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
+}
+
+.roll-fail {
+  background-color: #ff5959;
+}
+
+.roll-success {
+  background-color: #59ff67;
 }

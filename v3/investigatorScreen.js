@@ -22,6 +22,9 @@ const investigatorScreenBuilder = () => {
 
   attributes();
   characteristics();
+
+  addAttributeValues();
+  calculateActionScreenSuccessValues('characteristics-div');
 };
 
 investigatorScreenBuilder();

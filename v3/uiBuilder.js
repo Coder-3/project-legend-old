@@ -7,7 +7,7 @@ const attributes = () => {
     let currentAttribute = attributeComponent(attribute);
     attributesDiv.appendChild(currentAttribute);
   });
-}
+};
 
 const characteristics = () => {
   let listOfCharacteristics = Object.keys(CharacteristicsObject);
@@ -18,8 +18,14 @@ const characteristics = () => {
     let currentCharacteristic = characteristicComponent(characteristic);
     characteristicsDiv.appendChild(currentCharacteristic);
   });
-}
+};
 
-const drawCharacteristics = (characteristic, screenType) => {
-    let contentDiv = document.getElementById(screenType);
-}
+const addAttributeValues = () => {
+  let attributesDiv = document.getElementById("attributes-div");
+  let attributeValueInputs = attributesDiv.getElementsByClassName("attribute-value-input");
+  let attributeNames = attributesDiv.getElementsByClassName("attribute-paragraph");
+
+  [...attributeValueInputs].forEach((element, index) => {
+    element.value = AttributesObject[attributeNames[index].innerHTML];
+  });
+};

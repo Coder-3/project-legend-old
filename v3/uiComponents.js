@@ -16,7 +16,7 @@ attributeComponent = (attribute) => {
   return attributeDiv;
 };
 
-const characteristicComponent = (characteristic) => {
+const characteristicComponent = (characteristic, forActionScreen) => {
   let characteristicDiv = document.createElement("div");
   characteristicDiv.classList.add("characteristic-div");
   characteristicDiv.id = characteristic + "-div";
@@ -57,6 +57,12 @@ const characteristicComponent = (characteristic) => {
     "none"
   );
 
+  if (forActionScreen) {
+    characteristicRegularValue.id = 'action-' + characteristic + '-value-input';
+    characteristicHardValue.id = 'action-' + characteristic + '-hard-success';
+    characteristicExtremeValue.id = 'action-' + characteristic + '-extreme-success';
+  }
+
   characteristicValueDiv.appendChild(characteristicRegularValue);
   characteristicValueDiv.appendChild(characteristicHardValue);
   characteristicValueDiv.appendChild(characteristicExtremeValue);
@@ -73,7 +79,7 @@ const characteristicActionScreenComponent = (characteristic) => {
   characteristicActionScreenDiv.classList.add("characteristic-action-screen-div");
   characteristicActionScreenDiv.id = characteristic + "-action-screen-div";
 
-  let characteristicValueComponent = characteristicComponent(characteristic);
+  let characteristicValueComponent = characteristicComponent(characteristic, true);
 
   let rollButton = createButton("roll-button", characteristic + "-roll-button", "Roll");
   rollButton.onclick = function () {
@@ -100,7 +106,7 @@ const characteristicActionScreenComponent = (characteristic) => {
 
   let pushButton = createButton("characteristic-push-button", characteristic + "-push-button", "Push");
   pushButton.onclick = function () {
-    push(pushButton, rollButton);
+    push(pushButton, rollButton, characteristic);
   };
 
   characteristicActionScreenDiv.appendChild(characteristicValueComponent);
